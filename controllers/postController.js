@@ -1,5 +1,5 @@
 "use strict";
-
+const sequelize = require("sequelize");
 const Models = require("../models");
 
 const getPosts = (res) => {
@@ -27,7 +27,7 @@ const addLikes = (data, res) => {
     let dataToUpdate = {
         likes: sequelize.literal('likes + 1') 
     }
-    Models.Posts.update(dataToUpdate, criteria).then(function (data) {
+    Models.Post.update(dataToUpdate, criteria).then(function (data) {
         res.send({ result: 200 , data: data})
     }).catch(err => {
         throw err

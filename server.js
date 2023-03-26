@@ -1,17 +1,21 @@
 const express = require("express");
 const app = express();
+
 require("dotenv").config();
+
+app.use(express.json());
 
 let dbConnect = require("./dbConnect");
 dbConnect.connectMysql();
-app.use(express.json());
 
 let userRoutes = require('./routes/userRoutes')
 app.use('/api/users', userRoutes)
 
 let postRoutes = require('./routes/postRoutes')
-app.use('/api/posts',postRoutes)
+app.use('/api/posts', postRoutes)
 
+let commentRoutes = require('./routes/commentRoutes')
+app.use('/api/comments', commentRoutes)
 
 app.get("/", (req, res) => {
 res.json({ message: "Welcome to my MySQL application." });

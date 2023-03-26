@@ -3,11 +3,11 @@ const router = express.Router();
 const Controllers = require("../controllers");
 
 router.get('/', (req, res) => {
-    Controllers.userController.getPosts(res);
+    Controllers.postController.getPosts(res);
 })
 
-router.post('/createpost', (req, res) => {
-    Controllers.userController.createPosts(req.body, res)
+router.post('/create', (req, res) => {
+    Controllers.postController.createPosts(req.body, res)
 })
 
 router.put('/addLikes', (req, res) => {
