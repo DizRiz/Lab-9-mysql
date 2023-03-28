@@ -17,6 +17,9 @@ app.use('/api/posts', postRoutes)
 let commentRoutes = require('./routes/commentRoutes')
 app.use('/api/comments', commentRoutes)
 
+let activityRoutes = require('./routes/activityRoutes')
+app.use('/api/activity', activityRoutes)
+
 app.get("/", (req, res) => {
 res.json({ message: "Welcome to my MySQL application." });
 });
